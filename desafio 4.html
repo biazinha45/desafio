@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros com JS</title>
+</head>
+<body>
+    <h1>Media do aluno v1.0</h1>
+<button onclick="media()">Calcular media</button>
+<section id="situacao">
+<p>O resultado vai aparecer aqui..</p>
+</section>
+
+<script>
+function media(){
+let nom = window.prompt('qual e o nome do aluno?')
+//Ja que o nome nao é um numero e sim letras, nao é preciso colocar Number () para fazer a conversao
+let nota1=Number(window.prompt(`Qual foi a primeira nota de ${nom}?`))
+let nota2=Number(window.prompt(`Qual foi a segunda nota de ${nom}?`))
+let nota3=Number(window.prompt(`Qual foi a terceira nota de ${nom}?`))
+let nota4=Number(window.prompt(`Qual foi a quarta nota de ${nom}?`))
+
+med= (nota1 + nota2 + nota3 + nota4)/4
+// se voce nao  colocar os parenteses para forçar a precedencia, seu calcuço vai dar um resultado errado, ja que a divisao sera 
+
+let res = document.getElementById('situacao')
+res.innerHTML=`<p>Calculando a media final de <mark>${nom}</mark>.</p>`
+res.innerHTML+=`<p> A media final sera <mark>${med}</mark>.<p>`
+}
+</script>
+</body>
+</html>
