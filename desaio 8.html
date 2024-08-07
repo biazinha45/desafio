@@ -17,7 +17,7 @@
             let n1 = Number (window.prompt('Qual salario do individuo:'))
             let n2 = Number (window.prompt('Qual percentual do reajuste salarial:'))
 
-            let novosalar = n1-(n1(n2/100))
+            let novosalar = n1-(n1*(n2/100))
 
             let res = document.getElementById('resultado')
             res.innerHTML =`<p> o novo salario com o reajuste é de R$ ${novosalar.toFixed(2)}</p>`
