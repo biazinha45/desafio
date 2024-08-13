@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskara Calculator</title>
+</head>
+<body>
+    <h1>Calculadora de Bhaskara</h1>
+    <button onclick="calcularBhaskara()">Calcular</button>
+    <section id="resultado">
+        <p>O resultado vai aparecer aqui..</p>
+    </section>
+
+    <script>
+        function calcularBhaskara() {
+            let a = Number(window.prompt('Digite o valor de a:'));
+            let b = Number(window.prompt('Digite o valor de b:'));
+            let c = Number(window.prompt('Digite o valor de c:'));
+
+            // Verifique se 'a' não é zero (não é uma equação quadrática se 'a' for 0)
+            if (a === 0) {
+                alert("O coeficiente 'a' não pode ser zero para uma equação quadrática.");
+                return;
+            }
+
+            let delta = b * b - 4 * a * c;
+
+            let resultado = document.getElementById('resultado');
+            
+            if (delta > 0) {
+                let raizDelta = Math.sqrt(delta);
+                let x1 = (-b + raizDelta) / (2 * a);
+                let x2 = (-b - raizDelta) / (2 * a);
+                resultado.innerHTML = `<p>O delta (Δ) é <mark>${delta}</mark>.</p>`;
+                resultado.innerHTML += `<p>As raízes da equação são <mark>${x1.toFixed(2)}</mark> e <mark>${x2.toFixed(2)}</mark>.</p>`;
+            } else if (delta === 0) {
+                let x = -b / (2 * a);
+                resultado.innerHTML = `<p>O delta (Δ) é <mark>${delta}</mark>.</p>`;
+                resultado.innerHTML += `<p>A raiz única da equação é <mark>${x.toFixed(2)}</mark>.</p>`;
+            } else {
+                resultado.innerHTML = `<p>O delta (Δ) é <mark>${delta}</mark>.</p>`;
+                resultado.innerHTML += `<p>A equação não possui raízes reais.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
