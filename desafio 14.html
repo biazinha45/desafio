@@ -24,15 +24,16 @@
         if(media>=60){
     result= "Aprovado"
     }else{
-   
+    result = "Reprovado"
     if(media>=30)
-        result = "Reprovado"
+       
+        }else{
+            resutl = "Recuperação"
     }
 
     let res = document.getElementById('situacao')
             res.innerHTML = `<p> o aluno ${nome}, tem a media de ${media} e esta ${result}.</p>`
-
     }
 </script>
 </body>
-</html>
+ </html>
