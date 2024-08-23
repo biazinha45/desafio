@@ -21,16 +21,17 @@
     cont ++
     }
     media=media/4
-        if(meida>=60){
+        if(media>=60){
     result= "Aprovado"
     }else{
-    result = "Reprovado"
+   
+    if(media>=30)
+   
+        result = "Reprovado"
     }
-      if(Media >= 30){
-          result= "Recuperação"
 
     let res = document.getElementById('situacao')
-            res.innerHTML = `<p>Calculando o resultado de bhaskara é de <mark>${nome} </mark>.</p>`
+            res.innerHTML = `<p> o aluno ${nome}, tem a media de ${media} e esta ${result}.</p>`
 
     }
     </script>
