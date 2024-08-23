@@ -1,39 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<! DOCTYPE html >
+< html lang = "pt-BR" >
 <head>
-    <title>Aula Back-end 3 Ano - Polo Arapongas</title>
-</head>
+    <meta charset="UTF-8">
+    < meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+    <title>Student Approval Result</title>
+    <style>
+        body {
+            font family: Arial, sans serif;
+            margin: 20px;
+        }
+        #result p { 
+            font-weight: bold;
+        }
+    </ style >
+</ head >
 <body>
-   <h1>Calcule a Media do Aluno</h1>
-    <button onclick="validar()">Lançe a media </button>
-    <section id="situacao">
-        <p>O resultado vai aparecer aqui....</p>
-    </section>
-<script>
-    function validar() {
-    cont= 1;
-    var media = 0;
-    let nome = window.prompt('Qual e seu nome?')
+    <h1>Student Approval Result</h1>
+    < button onclick = " calculateMedia ()" > Calculate Average </ button >
+    <section id="result">
+        <p>The result is:</p>
+    </ section >
+    < script >
+        function calculateMedia () { 
+            
+            let note1 = Number ( window . prompt ( 'Enter note 1:' )); 
+            let note2 = Number ( window . prompt ( 'Enter note 2:' )); 
+            let note3 = Number ( window . prompt ( 'Enter note 3:' )); 
 
-    while (cont<= 4){
-    var notas = parseFloat(prompt(`Qual a nota ${cont}?`))
-    media=media+notas;
-    cont ++
-    }
-    media=media/4
-        if(media>=60){
-    result= "Aprovado"
-    }else{
-    result = "Reprovado"
-    if(media>=30)
-       
-        }else{
-            resutl = "Recuperação"
-    }
+          
+            let media = ( note1 + note2 + note3 )/ 3 ; 
 
-    let res = document.getElementById('situacao')
-            res.innerHTML = `<p> o aluno ${nome}, tem a media de ${media} e esta ${result}.</p>`
-    }
-</script>
-</body>
- </html>
+            
+            leave situation; 
+            if (media >= 60) {
+                situation = 'Approved';
+            } else if (media > 30) { 
+                situation = 'Recovery';
+            } other {
+                situation = 'Failed';
+            }
+
+            
+            let res = document. getElementById ( 'result' ); 
+            res.innerHTML = `<p>Student average is ${media.toFixed(2)}. Situation: ${situation}.</p>`;
+        }
+    </ script >
+</ body >
