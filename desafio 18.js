@@ -10,5 +10,41 @@ function checkInputs() {
   const usernameValue = username.value;
   const emailValue = email.value;
   const passwordValue = password.value;
-        const passwordConfirmationValue = passwordConfirmation.value
+  const passwordConfirmationValue = passwordConfirmation.value
+
+
+        if (usernameValue ==="") {}
+
+        if (usernameValue === "") {setErrorFor(username, "O nome de usuário é obrigatório.");}  else {setSuccessFor(username);}
+
+        if (emailValue === "") {setErrorFor(email, "O email é obrigatório.");} else
+        if (!checkEmail(emailValue)) {setErrorFor(email, "Por favor, insira um email válido.");} else {setSuccessFor(email);}
+      
+        if (passwordValue === "") {setErrorFor(password, "A senha é obrigatória.");} else
+        if (passwordValue.length < 7) {setErrorFor(password, "A senha precisa ter no mínimo 7 caracteres.");} else {setSuccessFor(password);}
+      
+        if (passwordConfirmationValue === "") {setErrorFor(passwordConfirmation, "A confirmação de senha é obrigatória.");}
+        else
+        if (passwordConfirmationValue !== passwordValue) {setErrorFor(passwordConfirmation, "As senhas não conferem.");}
+        else {setSuccessFor(passwordConfirmation);}
+      
+        const formControls = form.querySelectorAll(".form-control"); //form-control é a div criada no html e o PONTO é a classe no css (class) - variavel recebe TUDO dentro desse FORM
+      
+        const formIsValid = [...formControls].every((formControl) => {return formControl.className === "form-control success";});
+        //Esta parte cria um novo array a partir do array formControls.
+          // Isso é feito para garantir que estamos trabalhando com uma cópia do array original e não modificando-o diretamente.
+      
+        if (formIsValid) {console.log("O formulário está 100% válido!");} // só aparece no NODE
+
+   // function setErrorFor(input, message) {
+   function setErrorFor(input,message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+  
+    // Adiciona a mensagem de erro
+    small.innerText = message;
+  
+    // Adiciona a classe de erro
+    formControl.className = "form-control error";
+ }
 }
