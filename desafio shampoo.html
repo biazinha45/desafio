@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shampoo Halloween</title>
+    <title>Shampoo - Novo Produto</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #FFA500; /* Fundo laranja */
+        * {
             margin: 0;
-            padding: 20px;
-            color: #fff;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            background: linear-gradient(135deg, #32CD32, #FFCC99); /* Degradê verde e laranja claro */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #000; /* Título em preto */
-            font-size: 3rem;
-            text-shadow: 3px 3px #008000; /* Sombra verde no título */
+            font-size: 2em;
+            color: #2E8B57; /* Verde escuro */
+            margin-bottom: 10px;
         }
 
-        .shampoo-display img {
-            width: 600px; /* Imagem grande do shampoo */
-            border: 5px solid #000; /* Borda preta */
-            padding: 10px;
-            background-color: #008000; /* Fundo verde para destacar a imagem */
-            display: block;
-            margin: 20px auto; /* Centraliza a imagem */
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
         }
 
-        .cta {
-            background-color: #000; /* Fundo preto do botão */
-            color: #FFA500; /* Texto laranja no botão */
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-align: center;
-        }
-
-        .cta:hover {
-            background-color: #008000; /* Muda para verde quando passar o mouse */
+        .shampoo-image {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <h1>Shampoo de Halloween</h1>
-
-    <!-- Imagem grande e centralizada do shampoo -->
-    <div class="shampoo-display">
-        <img src="shampoo-halloween.jpg" alt="Shampoo de Halloween">
+    <div class="container">
+        <h1>Conheça o novo Shampoo!</h1>
+        <p>Feito especialmente para você, com ingredientes naturais.</p>
+        <img src="shampoo.png" alt="Imagem do Shampoo" class="shampoo-image">
     </div>
 </body>
 </html>
+
