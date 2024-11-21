@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Folha de Pagamento</title>
+    <link rel="stylesheet" href="salario1.css">
+</head>
+<body>
+    <header>
+        <h1>Folha de Pagamento</h1>
+    </header>
+
+    <!-- Campo para colocar o nome da pessoa -->
+    <section class="name-section">
+        <h2>Nome da Pessoa Responsável:</h2>
+        <input type="text" id="responsible-name" placeholder="Digite o nome aqui..." required>
+        <button onclick="displayResponsibleName()">Exibir Nome</button>
+        <p id="display-name" class="name-display"></p>
+    </section>
+
+    <section class="main-content">
+        <div class="info">
+            <h2>Funcionários</h2>
+            <table id="payroll-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Salário</th>
+                        <th>Imposto</th>
+                        <th>Salário Líquido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dados inseridos via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h2>Adicionar Funcionário</h2>
+            <form id="payroll-form">
+                <input type="text" id="name" placeholder="Nome do Funcionário" required>
+                <input type="text" id="position" placeholder="Cargo" required>
+                <input type="number" id="salary" placeholder="Salário Bruto" required>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Folha de Pagamento</p>
+    </footer>
+
+    <script src="salario1.js"></script>
+</body>
+</html>
