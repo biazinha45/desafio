@@ -1,76 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria de Imagens</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, olive, gold);
-            height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, olive, gold);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
 
-        .container {
+        h1 {
+            font-size: 26px;
+            margin: 20px 0;
             text-align: center;
         }
 
         .gallery {
             display: flex;
+            gap: 10px;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .gallery img {
-            width: 100px;
+            width: 150px;
             height: 100px;
-            border-radius: 10px;
+            object-fit: cover;
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
-        /* Transformação para expandir a imagem */
-        .gallery img.expanded {
-            width: 300px;
-            height: 300px;
-            transform: scale(1.5);
-            transition: transform 0.3s ease;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
         }
 
-        .dots {
+        .modal img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             margin-top: 20px;
-            font-size: 24px;
-            color: white;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        .content div {
+            width: 30%;
+            min-width: 200px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
+    <h1>Página criada pela IA</h1>
 
-    <div class="container">
-        <div class="gallery">
-            <img src="bandeirabizarrabriqier_widelg.png" alt="Imagem 1" onclick="expandImage(this)">
-            <img src="/tmp/guest-0v4os4/Área de Trabalho/_BandeiradoBrasilAtualmente.png" alt="Imagem 2" onclick="expandImage(this)">
-            <img src="/tmp/guest-0v4os4/Área de Trabalho/Bandeira_Imperial_oficial_(com_heráldica_certa).png" alt="Imagem 3" onclick="expandImage(this)">
-        </div>
-        <div class="dots">● ● ●</div>
+    <div class="gallery">
+        <a href="#img1"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+Colonia" alt="Bandeira Brasil Colônia"></a>
+        <a href="#img2"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil" alt="Bandeira Brasil"></a>
+        <a href="#img3"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+(4+dias)" alt="Bandeira Brasil (4 dias)"></a>
     </div>
 
+    <div id="img1" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+Colonia" alt="Bandeira Brasil Colônia"></a>
+    </div>
+    <div id="img2" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil" alt="Bandeira Brasil"></a>
+    </div>
+    <div id="img3" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+(4+dias)" alt="Bandeira Brasil (4 dias)"></a>
+    </div>
+
+    <div class="content">
+        <div>
+            Ouviram do Ipiranga às margens plácidas<br>
+            De um povo heróico o brado retumbante<br>
+            E o sol da liberdade, em raios fúlgidos<br>
+            Brilhou no céu da pátria nesse instante.
+        </div>
+        <div>
+            Se o penhor dessa igualdade<br>
+            Conseguimos conquistar com braço forte<br>
+            Em teu seio, ó liberdade<br>
+            Desafia o nosso peito a própria morte!
+        </div>
+        <div>
+            Ó pátria amada, idolatrada, salve! Salve!<br>
+            Brasil, um sonho intenso, um raio vívido<br>
+            De amor e de esperança à terra desce<br>
+            Se em teu formoso céu, risonho e límpido<br>
+            A imagem do Cruzeiro resplandece.
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="date"></span> - Todos os direitos reservados.</p>
+    </footer>
+
     <script>
-        function expandImage(img) {
-            // Remove a classe 'expanded' de todas as imagens
-            var images = document.querySelectorAll('.gallery img');
-            images.forEach(function(image) {
-                image.classList.remove('expanded');
-            });
-
-            // Adiciona a classe 'expanded' à imagem clicada
-            img.classList.add('expanded');
-        }
+        document.getElementById("date").textContent = new Date().toLocaleDateString();
     </script>
-
 </body>
 </html>
