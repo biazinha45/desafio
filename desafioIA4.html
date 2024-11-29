@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Dívida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, lightblue, white);
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Dívida de Cartão de Crédito</h1>
+    <form id="debtForm">
+        <label for="debt">Valor da Dívida Inicial (R$):</label>
+        <input type="number" id="debt" name="debt" min="0" step="0.01" required>
+
+        <label for="months">Meses de Atraso:</label>
+        <input type="number" id="months" name="months" min="0" required>
+
+        <label for="interest">Taxa de Juros Mensal (%):</label>
+        <input type="number" id="interest" name="interest" min="0" step="0.01" required>
+
+        <button type="button" onclick="calculateDebt()">Calcular Dívida</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateDebt() {
+            const debt = parseFloat(document.getElementById("debt").value);
+            const months = parseInt(document.getElementById("months").value);
+            const interest = parseFloat(document.getElementById("interest").value) / 100;
+
+            if (isNaN(debt) || isNaN(months) || isNaN(interest)) {
+                document.getElementById("result").textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            const finalDebt = debt * Math.pow((1 + interest), months);
+
+            document.getElementById("result").textContent = `A dívida total após ${months} meses é: R$ ${finalDebt.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
