@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha de Pagamento</title>
+    <style>   
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #5e2b96, #ffffff);
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff, #dcd6f7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #847297;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #7b00ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #924ef3;
+        }
+        #resultadoContainer {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #333;
+            text-align: left;
+        }
+        .resultadoItem {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="monogram-TI.png" alt="Logo" class="logo">
+        <h1>Folha de Pagamento</h1>
+        <p>Digite seu nome:</p>
+        <input type="text" id="nome" placeholder="Nome Completo" />
+        <p>Digite seu salário bruto:</p>
+        <input type="number" id="salarioBruto" placeholder="Salário Bruto" />
+        <button onclick="calcularSalarioLiquido()">Calcular Salário Líquido</button>
+        
+        <!-- Container para os resultados acumulados -->
+        <div id="resultadoContainer"></div>
+    </div>
+
+    <script>
+        function calcularSalarioLiquido() {
+            const nome = document.getElementById("nome").value;
+            const salarioBrutoInput = document.getElementById("salarioBruto");
+            const salarioBruto = parseFloat(salarioBrutoInput.value);
+            let salarioLiquido = salarioBruto;
+            let taxa = 0;
+
+            if (salarioBruto > 5000) {
+                taxa = 17.5;
+            } else if (salarioBruto > 4000) {
+                taxa = 12;
+            } else if (salarioBruto > 3000) {
+                taxa = 7.5;
+            } else if (salarioBruto > 1800) {
+                taxa = 3.5;
+            }
+
+            let desconto = 0;
+
+            // Aplica a taxa de imposto ao salário líquido e calcula o desconto
+            if (taxa > 0) {
+                desconto = salarioBruto * (taxa / 100);
+                salarioLiquido -= desconto;
+            }
+
+            // Adiciona o resultado atual ao histórico de resultados
+            const resultadoContainer = document.getElementById("resultadoContainer");
+            const resultadoItem = document.createElement("div");
+            resultadoItem.classList.add("resultadoItem");
+            resultadoItem.innerHTML = `
+                <strong>${nome}</strong><br>
+                Salário Bruto: R$ ${salarioBruto.toFixed(2)}<br>
+                Imposto: ${taxa}%<br>
+                Valor Descontado: R$ ${desconto.toFixed(2)}<br>
+                Salário Líquido: R$ ${salarioLiquido.toFixed(2)}
+            `;
+            resultadoContainer.appendChild(resultadoItem);
+
+            // Limpa o campo de salário bruto e coloca o foco de volta nele
+            salarioBrutoInput.value = "";
+            salarioBrutoInput.focus();
+        }
+    </script>
+</body>
+</html>
