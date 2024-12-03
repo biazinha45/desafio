@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, olive, gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        .content div {
+            width: 30%;
+            min-width: 200px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página criada pela IA</h1>
+
+    <div class="gallery">
+        <a href="#img1"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+Colonia" alt="Bandeira Brasil Colônia"></a>
+        <a href="#img2"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil" alt="Bandeira Brasil"></a>
+        <a href="#img3"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+(4+dias)" alt="Bandeira Brasil (4 dias)"></a>
+    </div>
+
+    <div id="img1" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+Colonia" alt="Bandeira Brasil Colônia"></a>
+    </div>
+    <div id="img2" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil" alt="Bandeira Brasil"></a>
+    </div>
+    <div id="img3" class="modal">
+        <a href="#"><img src="https://via.placeholder.com/600x400?text=Bandeira+Brasil+(4+dias)" alt="Bandeira Brasil (4 dias)"></a>
+    </div>
+
+    <div class="content">
+        <div>
+            Ouviram do Ipiranga às margens plácidas<br>
+            De um povo heróico o brado retumbante<br>
+            E o sol da liberdade, em raios fúlgidos<br>
+            Brilhou no céu da pátria nesse instante.
+        </div>
+        <div>
+            Se o penhor dessa igualdade<br>
+            Conseguimos conquistar com braço forte<br>
+            Em teu seio, ó liberdade<br>
+            Desafia o nosso peito a própria morte!
+        </div>
+        <div>
+            Ó pátria amada, idolatrada, salve! Salve!<br>
+            Brasil, um sonho intenso, um raio vívido<br>
+            De amor e de esperança à terra desce<br>
+            Se em teu formoso céu, risonho e límpido<br>
+            A imagem do Cruzeiro resplandece.
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="date"></span> - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById("date").textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
